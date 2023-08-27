@@ -26,7 +26,7 @@ export default function CancelPage() {
           Your payment was not completed. You can continue shopping or try
           again.
         </p>
-        <Link to="/" className="block mt-6 text-blue-500 hover:underline">
+        <Link href="/" className="block mt-6 text-blue-500 hover:underline">
           Continue Shopping
         </Link>
       </div>
