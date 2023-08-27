@@ -1,7 +1,22 @@
 import Link from "next/link";
 import React from "react";
 
-export default function SuccessPage() {
+async function getData() {
+  const res = await fetch("https://dummyjson.com/products");
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function SuccessPage() {
+  const data = await getData();
+  console.log({ data });
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md text-center">
